@@ -11,6 +11,7 @@ const redis = new Redis({
 })
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log(req)
   const { key } = req.query
 
   try {
