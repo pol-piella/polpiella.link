@@ -12,7 +12,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     token: 'AnlEASQgYzE0MzliOGUtNWFhNy00ZTFjLTgzYTEtZWRiNThkM2I4N2Vmx2YFZOSQ46v1Yn4-9nNlg6utv01LyVSrIxt8mWxoHuQ=',
   })
 
-  console.log(redis)
   const data = await redis.get(key);
   console.log(data)
 
