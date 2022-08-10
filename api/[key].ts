@@ -11,11 +11,10 @@ const redis = new Redis({
 })
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  console.log(req)
-  const { key } = req.query
+  // const { key } = req.query
 
   try {
-      const url = await redis.get(key as string);
+      const url = await redis.get("blog");
       res.status(200).send({ url });
   } catch(e) {
     console.error(e)
