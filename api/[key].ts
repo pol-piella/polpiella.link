@@ -10,14 +10,21 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN as string,
 })
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // const { key } = req.query
-
+export default async function handler(req: Request) {
   try {
       const url = await redis.get("blog");
-      res.status(200).send({ url });
+      return new Response(
+        JSON.stringify({
+          message: `Hello, world! ${url}`,
+        }),
+        {
+          status: 200,
+          headers: {
+            'content-type': 'application/json'
+        }
+        }
+      )
   } catch(e) {
     console.error(e)
-    res.status(500).send('Oopsie Doopsie!')
   }
-};
+}
