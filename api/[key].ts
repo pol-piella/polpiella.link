@@ -11,11 +11,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
       const url = await redis.get(key as string);
-        res.status(200).send({ url });
-
+      res.status(200).send({ url });
   } catch(e) {
     console.error(e)
     res.status(500).send('Oopsie Doopsie!')
   }
-
 };
