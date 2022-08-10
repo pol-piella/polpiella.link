@@ -13,5 +13,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const data = await redis.get(key as string);
   console.log(data)
 
-  res.status(200).send(key);
+  res.send('hello');
 };
