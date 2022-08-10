@@ -8,7 +8,14 @@ const redis = new Redis({
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { key } = req.query
-  const url = await redis.get(key as string);
 
-  res.status(200).send({ url });
+  try {
+      const url = await redis.get(key as string);
+        res.status(200).send({ url });
+
+  } catch(e) {
+    console.error(e)
+    res.status(500).send('Oopsie Doopsie!')
+  }
+
 };
