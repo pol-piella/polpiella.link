@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Redis } from '@upstash/redis'
 
 export const config = {
@@ -11,19 +10,17 @@ const redis = new Redis({
 })
 
 export default async function handler(req: Request) {
+  const searchParams = new URL(req.url).searchParams
+  const key = searchParams.get('key')
+
   try {
-      const url = await redis.get("blog");
-      return new Response(
-        JSON.stringify({
-          message: `Hello, world! ${url}`,
-        }),
-        {
-          status: 200,
-          headers: {
-            'content-type': 'application/json'
-        }
-        }
-      )
+      if (!key) {
+        return new Response(JSON.stringify({ message: "Missing argument `key`" }), { status: 400 })
+      }
+      
+      const url: string = await redis.get(key) ?? "/"
+
+      return Response.redirect(url)
   } catch(e) {
     console.error(e)
   }
