@@ -15,13 +15,15 @@ export default async function handler(req: Request) {
 
   try {
       if (!key) {
-        return new Response(JSON.stringify({ message: "Missing argument `key`" }), { status: 400 })
+        return new Response('Missing argument `key`', { status: 400 })
       }
       
-      const url: string = await redis.get(key) ?? "/"
+      const url: string | null = await redis.get(key)
+
+      if (!url) return new Response(`Could not find a url with key ${key}`, { status: 404 })
 
       return Response.redirect(url)
   } catch(e) {
-    console.error(e)
+    return new Response(JSON.stringify({ error: e }), { status: 500 })
   }
 }
