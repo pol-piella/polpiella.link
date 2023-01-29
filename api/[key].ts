@@ -10,6 +10,8 @@ const redis = new Redis({
 });
 
 export default async function handler(req: Request) {
+  const url = new URL(req.url);
+  console.log(url);
   const searchParams = new URL(req.url).searchParams;
   const key = searchParams.get("key");
 
