@@ -1,121 +1,107 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Card from '../components/Card'
-import linkedin from './linkedin.json'
-import github from './github.json'
-import twitter from './twitter.json'
-import cv from './cv.json'
-import aboutMe from './info.json'
-import blog from './blog.json'
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card";
+import linkedin from "./linkedin.json";
+import github from "./github.json";
+import twitter from "./twitter.json";
+import cv from "./cv.json";
+import aboutMe from "./info.json";
+import blog from "./blog.json";
 ---
 
 <Layout title="🔗 pol.link | Links to anywhere you can find me online!">
-	<main class='flex flex-col gap-10 min-h-screen justify-center'>
-		<section class='text-center flex flex-col gap-1'>
-			<img class='mx-auto w-20 h-20' src="/profile.png" alt="A memoji version of me on my laptop full of stickers.">
-			<h1 class='m-0 font-extrabold'>Hi! I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-600">Pol</span> 👋</h1>
-			<p class='m-0 max-w-sm mx-auto'>Below you can find a collection of links 🔗 that will take you anywhere you can find me online! 🌍</p>
-		</section>
-		<section>
-		<ul role="list" class="link-card-grid">
-			<Card
-				client:visible
-				href="/blog"
-				title="Blog"
-				icon={blog}
-			/>
-			<Card
-				client:visible
-				href="/twitter"
-				title="Twitter"
-				icon={twitter}
-			/>
-			<Card
-				client:visible
-				href="/github"
-				title="Github"
-				icon={github}
-			/>
-			<Card
-				client:visible
-				href="/linkedin"
-				title="Linkedin"
-				icon={linkedin}
-			/>
-			<Card
-				client:visible
-				href="/about"
-				title="About Me"
-				icon={aboutMe}
-			/>
-			<Card
-				client:visible
-				href="/cv"
-				title="CV"
-				icon={cv}
-			/>
-		</ul>
-		</section>
-
-	</main>
+  <main class="flex flex-col gap-10 min-h-screen justify-center">
+    <section class="text-center flex flex-col gap-1">
+      <img
+        class="mx-auto w-40 rounded-full aspect-square object-cover"
+        src="/profile.jpg"
+        alt="A memoji version of me on my laptop full of stickers."
+      />
+      <h1 class="m-0 font-extrabold">
+        Hi! I'm <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-600"
+          >Pol</span
+        > 👋
+      </h1>
+      <p class="m-0 max-w-sm mx-auto">
+        Below you can find a collection of links 🔗 that will take you anywhere
+        you can find me online! 🌍
+      </p>
+    </section>
+    <section>
+      <ul role="list" class="link-card-grid">
+        <Card client:visible href="/blog" title="Blog" icon={blog} />
+        <Card client:visible href="/twitter" title="Twitter" icon={twitter} />
+        <Card client:visible href="/github" title="Github" icon={github} />
+        <Card
+          client:visible
+          href="/linkedin"
+          title="Linkedin"
+          icon={linkedin}
+        />
+        <Card client:visible href="/about" title="About Me" icon={aboutMe} />
+        <Card client:visible href="/cv" title="CV" icon={cv} />
+      </ul>
+    </section>
+  </main>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
+  :root {
+    --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+  }
 
-	h1 {
-		margin: 2rem 0;
-	}
+  h1 {
+    margin: 2rem 0;
+  }
 
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: 60ch;
+  }
 
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
+  .text-gradient {
+    font-weight: 900;
+    background-image: var(--astro-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    border-radius: 0.4rem;
+    animation: pulse 4s ease-in-out infinite;
+  }
 
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
+  @keyframes pulse {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: 80%;
+    }
+  }
 
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    background: #4f39fa;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    color: var(--color-bg);
+  }
 
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
+  .instructions code {
+    font-size: 0.875em;
+    border: 0.1em solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.15em 0.25em;
+  }
 
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
 </style>
