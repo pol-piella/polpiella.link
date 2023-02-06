@@ -24,6 +24,6 @@
     "react-dom": "18.2.0"
   },
   "dependencies": {
-    "@upstash/redis": "1.19.3"
+    "@vercel/edge-config": "^0.1.1"
   }
 }
