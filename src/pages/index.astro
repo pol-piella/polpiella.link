@@ -4,14 +4,14 @@ import Social from "../components/Social.svelte"
 ---
 
 <Layout title="🔗 pol.link | Links to anywhere you can find me online!">
-  <main class="min-h-screen justify-center flex flex-col gap-8 text-center max-w-sm mx-auto my-4">
+  <main class="min-h-screen justify-center flex flex-col gap-8 text-center max-w-sm mx-auto my-4 prose">
     <section>
       <img
         class="mx-auto aspect-square w-20 rounded-full object-cover"
         src="/profile.jpg"
         alt="A memoji version of me on my laptop full of stickers."
       />
-      <h1 class="m-0 font-extrabold text-4xl">
+      <h1 class="m-0 font-extrabold">
         Hi! I'm Pol 👋
       </h1>
       <p class="m-0 mx-auto max-w-sm">
@@ -21,13 +21,13 @@ import Social from "../components/Social.svelte"
     </section>
 
       <section class="flex flex-col gap-3">
-        <Social url="/blog" title="My blog" icon="/profile.png" background="bg-gray-900" text="white" />
-        <Social url="/newsletter" title="iOS CI Newsletter" icon="/ci-newsletter.svg" background="bg-cyan-800" text="white" />
-        <Social url="/github" title="Check out my GH repos" icon="/github.svg" background="bg-black" text="white" />
-        <Social url="/twitter" title="Follow me on Twitter" icon="/twitter.svg" background="bg-[#1DA1F2]" text="white" />
-        <Social url="/linkedin" title="Let's connect on Linkedin" icon="/linkedin.svg" background="bg-[#0A66C2]" text="white" />
-        <Social url="/mastodon" title="I'm on Mastodon too!" icon="/mastodon.svg" background="bg-[#6364FF]" text="white" />
-        <Social url="/cv" title="Download my CV" icon="/download.svg" background="bg-red-800" text="white" />
+        <Social url="/blog" title="My blog" icon="/profile.png" background="bg-gray-900"/>
+        <Social url="/newsletter" title="iOS CI Newsletter" icon="/ci-newsletter.svg" background="bg-cyan-800" />
+        <Social url="/github" title="Check out my GH repos" icon="/github.svg" background="bg-black" />
+        <Social url="/twitter" title="Follow me on Twitter" icon="/twitter.svg" background="bg-[#1DA1F2]" />
+        <Social url="/linkedin" title="Let's connect on Linkedin" icon="/linkedin.svg" background="bg-[#0A66C2]" />
+        <Social url="/mastodon" title="I'm on Mastodon too!" icon="/mastodon.svg" background="bg-[#6364FF]" />
+        <Social url="/cv" title="Download my CV" icon="/download.svg" background="bg-red-800" />
       </section>
   </main>
 </Layout>
